@@ -1,12 +1,9 @@
-package jpabook.chap01;
-
-import static org.junit.Assert.*;
+package jpabook.chap05;
 
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 
 import jpabook.model.entity.Item;
@@ -15,12 +12,9 @@ import jpabook.model.entity.OrderItem;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,9 +27,9 @@ import jpabook.repository.MemberRepository;
 @SpringApplicationConfiguration(classes=JpabookApplication.class)
 @WebAppConfiguration
 @EnableTransactionManagement
-public class TestChapter01 {
+public class Chap05Test {
 
-	@PersistenceContext EntityManager em;
+
 	@Autowired TestService testService;
 	@Autowired MemberRepository memberRepository;
 	
