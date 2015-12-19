@@ -34,7 +34,7 @@ public class Chap06Test {
     @Autowired TestService testService;
 
     @Test
-    public void test() throws Exception{
+    public void ObjectGraphTest() throws Exception{
         Order savedOrder = testService.saveMockOrder();
         assertEquals(savedOrder.getMember().getName(),아라한사);
         assertEquals(savedOrder.getMember().getCity(),인천);
@@ -108,5 +108,5 @@ public class Chap06Test {
             return savedDelivery;
         }
     }
-    
+
 }
