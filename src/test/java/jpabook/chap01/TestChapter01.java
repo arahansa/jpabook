@@ -2,12 +2,16 @@ package jpabook.chap01;
 
 import static org.junit.Assert.*;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 
+import jpabook.model.entity.Item;
+import jpabook.model.entity.Order;
+import jpabook.model.entity.OrderItem;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,14 +66,41 @@ public class TestChapter01 {
 		   	 //memberRepository.save(member);
 		   	 
 		   	 List<Member> members = memberRepository.findAll();
-		   	 members.forEach(n->System.out.println(n.getId()+","+n.getName()));
-		   	 System.out.println("JPA Search! ");
-		   	 Member getMember = em.find(Member.class, 1L);
+		   	 members.forEach(n -> System.out.println(n.getId() + "," + n.getName()));
+
+		   	 final Member getMember = em.find(Member.class, 1L);
 		   	 if(getMember!=null){
 		   		 System.out.println("getMember :: "+getMember.getName());
 		   	 }else{
 		   		 System.out.println(" Member null ? ");
 		   	 }
+
+			Item item = new Item();
+			item.setName("맥북");
+			item.setPrice(1000);
+			item.setStockQuantity(1);
+			em.persist(item);
+			em.flush();
+			final Item getItem = em.find(Item.class, 1L);
+
+			OrderItem orderItem = new OrderItem();
+			orderItem.setCount(1);
+			orderItem.setOrderPrice(1500);
+			orderItem.setItem(getItem);
+			em.persist(orderItem);
+
+
+			Order order = new Order();
+			order.setMember(getMember);
+			order.addOrderItem(orderItem);
+			order.setOrderDate(new Date());
+			em.persist(order);
+			em.flush();
+			em.clear();
+			Order getOrder = em.find(Order.class, 1L);
+			OrderItem getOrderItem = getOrder.getOrderItems().get(0);
+			System.out.println("아이템 이름  :"+getOrderItem.getItem().getName());
+			System.out.println("아이템 주문자 이름  : "+getOrder.getMember().getName());
 		}
 	}
 	
