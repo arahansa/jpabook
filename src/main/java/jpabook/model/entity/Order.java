@@ -53,7 +53,7 @@ public class Order {
 
 	public void setDelivery(Delivery delivery){
 		this.delivery = delivery;
-
+		delivery.setOrder(this);
 	}
 
 }
