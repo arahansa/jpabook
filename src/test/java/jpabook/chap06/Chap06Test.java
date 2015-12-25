@@ -2,6 +2,7 @@ package jpabook.chap06;
 
 import jpabook.JpabookApplication;
 import jpabook.model.entity.*;
+import jpabook.model.entity.item.Album;
 import jpabook.repository.*;
 import jpabook.service.TestService;
 import org.junit.Test;
@@ -42,7 +43,9 @@ public class Chap06Test {
         assertEquals(savedOrder.getMember().getCity(),인천);
         assertEquals(savedOrder.getDelivery().getCity(),인천);
         assertEquals(savedOrder.getOrderItems().get(0).getItem().getName(),맥북);
+        System.out.println("겟아티스트 : "+((Album)(savedOrder.getOrderItems().get(0).getItem())).getArtist());
         System.out.println("오더주문 아이디  :"+savedOrder.getId());
+
     }
 
 

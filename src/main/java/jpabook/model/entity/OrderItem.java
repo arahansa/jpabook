@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import jpabook.model.entity.item.Item;
 import lombok.Data;
 import lombok.ToString;
 

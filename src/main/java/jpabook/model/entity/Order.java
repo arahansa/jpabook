@@ -11,7 +11,7 @@ import lombok.Data;
 @Entity
 @Table(name="ORDERS")
 @Data
-public class Order {
+public class Order extends BaseEntity{
 	
 	
 	@Id

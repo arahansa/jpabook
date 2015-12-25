@@ -1,5 +1,6 @@
 package jpabook.model.entity;
 
+import jpabook.model.entity.item.Item;
 import lombok.Data;
 
 import javax.persistence.*;

@@ -15,7 +15,7 @@ import lombok.ToString;
 @Data
 @Entity
 @ToString(exclude="orders")
-public class Member {
+public class Member extends BaseEntity{
 	
 	
 	@Id

@@ -6,7 +6,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import jpabook.model.entity.Item;
+import jpabook.model.entity.item.Album;
+import jpabook.model.entity.item.Item;
 import jpabook.model.entity.Order;
 import jpabook.model.entity.OrderItem;
 import org.junit.Test;
@@ -69,7 +70,7 @@ public class Chap05Test {
 		   		 System.out.println(" Member null ? ");
 		   	 }
 
-			Item item = new Item();
+			Item item = new Album();
 			item.setName("맥북");
 			item.setPrice(1000);
 			item.setStockQuantity(1);

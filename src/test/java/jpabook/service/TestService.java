@@ -1,6 +1,8 @@
 package jpabook.service;
 
 import jpabook.model.entity.*;
+import jpabook.model.entity.item.Album;
+import jpabook.model.entity.item.Item;
 import jpabook.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,11 +50,12 @@ public class TestService{
     }
 
     public Item saveMockItem(){
-        final Item item = new Item();
+        final Album item = new Album();
         item.setCategories(Arrays.asList(saveMockCategory()));
         item.setName(맥북);
         item.setPrice(10);
         item.setStockQuantity(3);
+        item.setArtist("아티스트 아라한사");
         final Item savedItem = itemRepository.save(item);
         return savedItem;
     }
