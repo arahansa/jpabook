@@ -3,11 +3,7 @@ package jpabook.model.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import lombok.Data;
 import lombok.ToString;
@@ -25,9 +21,8 @@ public class Member extends BaseEntity{
 	
 	private String name;
 	
-	private String city;;
-	private String street;
-	private String zipcode;
+	@Embedded
+	private Address address;
 	
 	@OneToMany(mappedBy="member")
 	private List<Order> orders = new ArrayList<>();
